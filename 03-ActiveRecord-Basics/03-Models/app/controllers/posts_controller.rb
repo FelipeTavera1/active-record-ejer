@@ -7,13 +7,18 @@ class PostsController
 
   def index
     # DO NOT WRITE SQL QUERIES
+    posts = Post.all
     # TODO: gather all posts from the database
+    @view.display(posts)
     # TODO: give them to the view to be printed
   end
 
   def create
     # DO NOT WRITE SQL QUERIES
+    title = @view.ask_for('title')
+    url = @view.ask_for('url')
     # TODO: create a post
+    Post.create(title: title, url: url)
   end
 
   def update
